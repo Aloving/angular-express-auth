@@ -21,6 +21,6 @@ exports.post = function(req, res, next) {
       let token = jwt.sign({ username: username }, config.get('secretkey'));
       return token;
     })
-    .then(token => res.json(token))
+    .then(token => res.json({token}))
     .catch(err => next(err));
 };

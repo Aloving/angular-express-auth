@@ -21,8 +21,8 @@ exports.post = function(req, res, next) {
 
 exports.get = function(req, res, next) {
   const xAuth = req.headers['x-auth'];
-
-  if (!xAuth) next({status: 401});
+  
+  if (!xAuth) next({ status: 401 });
 
   const getDecodeJson = new Promise((resolve, reject) => {
     jwt.verify(xAuth, config.get('secretkey'), (err, decoded) => {
